@@ -4,13 +4,59 @@
       "waypoint_file_path": "./ROAR_Sim/data/location_0.txt",
       "enable_autopilot": true,
       "spawn_point_id": 0,
-      "target_speed": 80
-  },
-    {
-      "name": "npc_2",
-      "waypoint_file_path": "./ROAR_Sim/data/location_2.txt",
-      "enable_autopilot": true,
-      "spawn_point_id": 2,
-      "target_speed": 80
+      "max_speed": 80,
+      "front_depth_cam": {
+        "fov": 70,
+        "transform": {
+          "location": {
+            "x": 1.6,
+            "y": 1.7,
+            "z": 0
+          },
+          "rotation": {
+            "pitch": 0.0,
+            "yaw": 0.0,
+            "roll": 0.0
+          }
+        },
+        "image_size_x": 800,
+        "image_size_y": 600
+      },
+      "front_rgb_cam": {
+      "fov": 70,
+      "transform": {
+        "location": {
+          "x": 1.6,
+          "y": 1.7,
+          "z": 0
+        },
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": 0.0
+        }
+      },
+      "image_size_x": 800,
+      "image_size_y": 600
+    },
+    "rear_rgb_cam": {
+      "fov": 145,
+      "transform": {
+        "location": {
+          "x": -1.5,
+          "y": 1.4,
+          "z": 0
+        },
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 180.0,
+          "roll": 0.0
+        }
+      },
+      "image_size_x": 800,
+      "image_size_y": 600
+    },
+    "x_res": 80,
+    "y_res": 80
   }
 ]
