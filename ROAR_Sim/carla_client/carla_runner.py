@@ -304,8 +304,7 @@ class CarlaRunner:
 
         self.world.spawn_npcs(npc_configs)
         self.npc_agents = {
-            self.npc_agent_class(vehicle=actor, agent_settings=npc_config): actor for actor, npc_config in
-            self.world.npcs_mapping.values()
+            self.npc_agent_class(agent_settings=npc_config): actor for actor, npc_config in self.world.npcs_mapping.values()
         }
 
     def get_num_collision(self):
