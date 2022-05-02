@@ -18,6 +18,7 @@ pip install redis
 ```
 python runner_multi_agent.py
 ```
+#### npc config: ROAR/ROAR_Sim/configurations/npc_config.json
 ### Some Concept
 CARLA provides support for multi-agent through the following three core concepts.
 - Actor: Actor is anything that participates in the simulation and can be moved around, for example, vehicles, pedestrians.
