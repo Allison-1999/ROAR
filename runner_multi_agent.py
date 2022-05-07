@@ -9,6 +9,7 @@ from ROAR.agent_module.potential_field_agent import PotentialFieldAgent
 from ROAR.agent_module.occupancy_map_agent import OccupancyMapAgent
 from ROAR.agent_module.michael_pid_agent import PIDAgent
 from ROAR.agent_module.forward_only_agent import ForwardOnlyAgent
+from ROAR.agent_module.pidroll_agent import PIDRollAgent
 # from ROAR.agent_module.special_agents.waypoint_generating_agent import WaypointGeneratigAgent
 from pydantic import BaseModel, Field
 from carla import *
@@ -37,10 +38,10 @@ def main():
     #new_vehicle_2.set_autopilot()
 
 
-    agent = ForwardOnlyAgent(vehicle=my_vehicle, agent_settings=agent_config)
-    carla_runner.start_game_loop(agent=agent, use_manual_control=True)
+    agent = PIDRollAgent(vehicle=my_vehicle, agent_settings=agent_config)
+    carla_runner.start_game_loop(agent=agent, use_manual_control=False)
 
-    agent2 =ForwardOnlyAgent(vehicle=new_vehicle, agent_settings=agent_config)
+    agent2 =PIDRollAgent(vehicle=new_vehicle, agent_settings=agent_config)
     carla_runner.start_game_loop(agent=agent2, use_manual_control=False)# is grey tesla
 
     #agent3 = PIDAgent(vehicle=new_vehicle_2, agent_settings=agent_config)
