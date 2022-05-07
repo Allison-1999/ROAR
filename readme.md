@@ -1,7 +1,5 @@
-# Robot Open Autonomous Racing (ROAR) - Multi-Agent Support
-The existing code base and API of the CARLA simulator and the OpenAI Gym third party environment developed for the ROAR project mainly focuses on the interaction between one vehicle and the environment. However, in fact, one agent not only interacts with the environment but also interaction with other agents exists in the same environment in the realistic situation.
+# Robot Open Autonomous Racing (ROAR) - Multi-Agent Attempt
 
-In this project, a new Gym-CARLA environment, ROARMultiEnv, has been developed to support multi-agent autonomous driving simulation. It is based on CARLA API and uses Ray Library. A simple_agent was developed for testing.
 
 ### New Dependency
 ```
@@ -29,9 +27,11 @@ CARLA provides support for multi-agent through the following three core concepts
 ### Result
 ![img](https://lh4.googleusercontent.com/LZ8KGJXVh-fIpk_php4efI__S979uRv423DiCZAv0cTjUXcI04QXbnciYfuGGCGuMVjPR8OWq8Pniw9in-u-FsTym6eoOYGY5yDZfiqkg98BaTtz3Iie3Wiucct7eF3OzJJyhdbl)
 
-### Future Work
-- Develop environment subclasses based on ROARMultiEnv to support more different types of agents in the ROAR project, such as rl_e2e_ppo_agent, and etc.
-- The process of executing the step for each agent can be parallelized
+### Prolem
+- can only control one vehicle. Can't support mutiple agents training.
+
+### Solution
+- For control multiple agents -> support multiple agents training. Please refer to: https://github.com/Allison-1999/ROAR_Multi_Client_Sim
 
 ### Reference
 [1]M. Zhou, J. Luo, J. Villella, Y. Yang, D. Rusu, J. Miao, W. Zhang, M. Alban, I. Fadakar, Z. Chen, et al. SMARTS: Scalable Multi-Agent Reinforcement Learning Training School for Autonomous Driving. arXiv preprint arXiv:2010.09776, 2020
