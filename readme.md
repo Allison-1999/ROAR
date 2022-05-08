@@ -1,14 +1,18 @@
 # Robot Open Autonomous Racing (ROAR) - Multi-Agent Support
-The existing code base and API of the CARLA simulator and the OpenAI Gym third party environment developed for the ROAR project mainly focuses on the interaction between one vehicle and the environment. However, in fact, one agent not only interacts with the environment but also interaction with other agents exists in the same environment in the realistic situation.
+The existing code base(ROAR_Sim) developed for the ROAR project mainly focuses on the interaction between one vehicle and the environment. Reinforcement learning model is hard to converge. 
+To help RL model converge, I provide the solution: Multi-Agents RL Model Training.
 
-In this project, a new Gym-CARLA environment, ROARMultiEnv, has been developed to support multi-agent autonomous driving simulation. It is based on CARLA API and uses Ray Library. A simple_agent was developed for testing.
+In this project,I implemented multi-agents training solution in one world (Berkeley Minor Map).
+- Support multiple RL agents training.
+- Support one RL agent training with other vehicles (not RL agents).
+
 
 
 Other things for readme:
 1. stable_baseline3 modification
 2. requirements installation  -->  regenerate one.
-
-### Step 1: Download the Berkeley minor map:
+## Quick Start
+### Step 1: Download the Berkeley minor map
 - The zip file is [available here](https://drive.google.com/file/d/1hyI9SyjxFG7IV-c6RQxz26fs5LijRogY/view?usp=sharing). 
 - Please make sure **you download the engine from this link**, since there are multiple carla version and engines within ROAR project.
 - Please download it to a disk with more than 10GB available spaces, and then unzip the file.
@@ -96,23 +100,20 @@ https://docs.wandb.ai/quickstart
 `wandb login a20e04de52982c4c0293909e28070b1338acba5e`
 ```
 
-### Some Concept
-CARLA provides support the following three core concepts.
-- Actor: Actor is anything that participates in the simulation and can be moved around, for example, vehicles, pedestrians.
-- Blueprint: Blueprint is the specific attributes definition of an actor. New actors initialized through a blueprint. 
-- World: The world is the major ruler of the simulation. It represents the currently loaded map, and contains the setting of parameters of the current simulation environment and functions that create, control and destroy actors. CARLA provides carla.World as the default world setting. 
+## Result
+### 1.Multiple RL models training
+- Demo Video: https://youtu.be/laiqscH3D54
+![img.png](img.png)
 
-### Result
-![img](https://lh4.googleusercontent.com/LZ8KGJXVh-fIpk_php4efI__S979uRv423DiCZAv0cTjUXcI04QXbnciYfuGGCGuMVjPR8OWq8Pniw9in-u-FsTym6eoOYGY5yDZfiqkg98BaTtz3Iie3Wiucct7eF3OzJJyhdbl)
+### 2. One RL model training with other vehicles
+- Demo video: https://youtu.be/vcN-FdV7lzo
+![img_1.png](img_1.png)
 
-### Future Work
-- Develop environment subclasses based on ROARMultiEnv to support more different types of agents in the ROAR project, such as rl_e2e_ppo_agent, and etc.
-- The process of executing the step for each agent can be parallelized
-
-### Reference
-[1]M. Zhou, J. Luo, J. Villella, Y. Yang, D. Rusu, J. Miao, W. Zhang, M. Alban, I. Fadakar, Z. Chen, et al. SMARTS: Scalable Multi-Agent Reinforcement Learning Training School for Autonomous Driving. arXiv preprint arXiv:2010.09776, 2020
-
-[2]P. Moritz, R. Nishihara, S. Wang, A. Tumanov, R. Liaw, E. Liang, M. Elibol, Z. Yang, W. Paul, M. I. Jordan, et al. Ray: A distributed framework for emerging AI applications. In OSDI, pages 561–577, 2018.
-
-[3]P. Palanisamy, “Multi-agent connected autonomous driving using Deep Reinforcement Learning,” 2020 International Joint Conference on Neural Networks (IJCNN), 2020. 
-
+## Future Work
+1. Redesign the reward of RL model to achieve:
+- Train multiple RL agents to speed up model converge (Helpful for more complicated map -> Berkeley Major Map)
+- Train one RL agent that can avoid collide with other vehicles.
+2. Multiple vehicles racing
+## Reference
+[1] Dosovitskiy, A., Ros, G., Codevilla, F., Lopez, A., & Koltun, V. (2017). Carla: An open urban driving simulator. In Conference on robot learning (pp. 1–16).
+[2] Python API - CARLA Simulator. (2022). Retrieved 8 May 2022, from https://carla.readthedocs.io/en/latest/python_api
