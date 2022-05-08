@@ -7,11 +7,26 @@ In this project, a new Gym-CARLA environment, ROARMultiEnv, has been developed t
 Other things for readme:
 1. stable_baseline3 modification
 2. requirements installation  -->  regenerate one.
+
+### Step 1: Download the Berkeley minor map:
+- The zip file is [available here](https://drive.google.com/file/d/1hyI9SyjxFG7IV-c6RQxz26fs5LijRogY/view?usp=sharing). 
+- Please make sure **you download the engine from this link**, since there are multiple carla version and engines within ROAR project.
+- Please download it to a disk with more than 10GB available spaces, and then unzip the file.
+- After that, you can get a `Carla` folder.
+
+### Step 2: Install Anaconda
+https://docs.anaconda.com/anaconda/install/index.html
+
+### Step 3: Install Dependencies
 ```
 git clone https://github.com/Allison-1999/ROAR.git ROAR1
 git clone https://github.com/Allison-1999/ROAR.git ROAR2
 
 Build environment and install packages
+cd ROAR1
+conda create -n roar_multi_rl_client_3.7.7 python=3.7.7
+conda activate roar_multi_rl_client_3.7.7
+pip install -r multi_clients_requirements.txt
 
 Open your PyCharm USING `RUN AS ADMINISTRATION` (Otherwise, the model saving will fail)
 And open the ROAR1 and ROAR2 projects in two PyCharm windows
@@ -81,26 +96,8 @@ https://docs.wandb.ai/quickstart
 `wandb login a20e04de52982c4c0293909e28070b1338acba5e`
 ```
 
-
-### New Dependency
-```
-pip install -U ray
-```
-```
-pip install -U "ray[rllib]" 
-```
-```
-pip install redis
-```
-
-### Quick start
-```
-python runner_multi_agent.py
-```
-#### npc config path
-ROAR/ROAR_Sim/configurations/npc_config.json
 ### Some Concept
-CARLA provides support for multi-agent through the following three core concepts.
+CARLA provides support the following three core concepts.
 - Actor: Actor is anything that participates in the simulation and can be moved around, for example, vehicles, pedestrians.
 - Blueprint: Blueprint is the specific attributes definition of an actor. New actors initialized through a blueprint. 
 - World: The world is the major ruler of the simulation. It represents the currently loaded map, and contains the setting of parameters of the current simulation environment and functions that create, control and destroy actors. CARLA provides carla.World as the default world setting. 
