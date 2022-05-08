@@ -6,7 +6,7 @@ In this project, a new Gym-CARLA environment, ROARMultiEnv, has been developed t
 git clone https://github.com/Allison-1999/ROAR.git ROAR1
 git clone https://github.com/Allison-1999/ROAR.git ROAR2
 
-after installing the packages, change the stable_baseline3.
+After installing the packages, to run e2eModel, please change the stable_baseline3.
 
 change spawn_point_id in ROAR_gym/configurations/agent_configuration.json line 60, set 0 for ROAR1 and set 1 for ROAR2
 with its context should be:
