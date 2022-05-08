@@ -163,6 +163,6 @@ If you want to get this results, please run the `ROAR_gym/e2eModel.py` script of
 2. Multiple vehicles racing
 
 ## Reference
-[1] Dosovitskiy, A., Ros, G., Codevilla, F., Lopez, A., & Koltun, V. (2017). Carla: An open urban driving simulator. In Conference on robot learning (pp. 1–16).
-[2] Python API - CARLA Simulator. (2022). Retrieved 8 May 2022, from https://carla.readthedocs.io/en/latest/python_api\
-The RL model training script is credit to other teammates.
+[1] Dosovitskiy, A., Ros, G., Codevilla, F., Lopez, A., & Koltun, V. (2017). Carla: An open urban driving simulator. In Conference on robot learning (pp. 1–16).\
+[2] Python API - CARLA Simulator. (2022). Retrieved 8 May 2022, from https://carla.readthedocs.io/en/latest/python_api  \
+[3] The RL model training script is credit to other teammates.
