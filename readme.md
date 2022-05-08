@@ -2,6 +2,11 @@
 The existing code base and API of the CARLA simulator and the OpenAI Gym third party environment developed for the ROAR project mainly focuses on the interaction between one vehicle and the environment. However, in fact, one agent not only interacts with the environment but also interaction with other agents exists in the same environment in the realistic situation.
 
 In this project, a new Gym-CARLA environment, ROARMultiEnv, has been developed to support multi-agent autonomous driving simulation. It is based on CARLA API and uses Ray Library. A simple_agent was developed for testing.
+```
+git clone https://github.com/Allison-1999/ROAR.git ROAR1
+git clone https://github.com/Allison-1999/ROAR.git ROAR2
+```
+
 
 ### New Dependency
 ```
