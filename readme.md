@@ -23,7 +23,30 @@ for ROAR2:
     "show_sensors_data": true,
     "save_sensor_data": false
     
-    
+also change the following file: ROAR_gym/configurations/ppo_configuration.py
+for ROAR1:
+misc_params = {
+  "env_name": 'roar-e2e-ppo-v0',
+  "run_fps": 8,  # TODO Link to the environment RUN_FPS
+  "model_directory": Path("./output/PPOe2e_Run_1"),
+  "run_name": "Run 2",
+  "total_timesteps": int(1e6),
+}
+
+for ROAR2:
+misc_params = {
+  "env_name": 'roar-e2e-ppo-v0',
+  "run_fps": 8,  # TODO Link to the environment RUN_FPS
+  "model_directory": Path("./output/PPOe2e_Run_1"),
+  "run_name": "Run 1",
+  "total_timesteps": int(1e6),
+}
+
+
+
+
+
+
 then, change the ROAR_gym/configurations/wandb_configuration.json file, set different run id. Set 1 for ROAR1, and set 2 for ROAR 2
 for ROAR1:
 {"run_id": "Run 1", "name": "", "project_name": "ROAR", "entity": "jingjingwei"}
