@@ -1,0 +1,91 @@
+diff --git a/ROAR_gym/configurations/agent_configuration.json b/ROAR_gym/configurations/agent_configuration.json
+index 0829d09..0aaf6e5 100644
+--- a/ROAR_gym/configurations/agent_configuration.json
++++ b/ROAR_gym/configurations/agent_configuration.json
+@@ -57,7 +57,7 @@
+     "simple_waypoint_local_planner_config_file_path": "../ROAR_Sim/configurations/simple_waypoint_local_planner_config.json",
+     "output_data_folder_path": "./output",
+     "enable_autopilot": true,
+-    "spawn_point_id": 1,
++    "spawn_point_id": 7,
+     "show_sensors_data": true,
+     "save_sensor_data": false
+ }
+\ No newline at end of file
+diff --git a/ROAR_gym/configurations/ppo_configuration.py b/ROAR_gym/configurations/ppo_configuration.py
+index 19bb241..c20ffc2 100644
+--- a/ROAR_gym/configurations/ppo_configuration.py
++++ b/ROAR_gym/configurations/ppo_configuration.py
+@@ -11,7 +11,7 @@ misc_params = {
+   "env_name": 'roar-e2e-ppo-v0',
+   "run_fps": 8,  # TODO Link to the environment RUN_FPS
+   "model_directory": Path("./output/PPOe2e_Run_1"),
+-  "run_name": "Run 2",
++  "run_name": "ROAR5",
+   "total_timesteps": int(1e6),
+ }
+ 
+diff --git a/ROAR_gym/configurations/wandb_configuration.json b/ROAR_gym/configurations/wandb_configuration.json
+index e8e3ba7..6850c4c 100644
+--- a/ROAR_gym/configurations/wandb_configuration.json
++++ b/ROAR_gym/configurations/wandb_configuration.json
+@@ -1 +1 @@
+-{"run_id": "Run 2", "name": "", "project_name": "ROAR", "entity": "jingjingwei"}
+\ No newline at end of file
++{"run_id": "ROAR5", "name": "", "project_name": "ROAR", "entity": "jingjingwei"}
+\ No newline at end of file
+diff --git a/readme.md b/readme.md
+index 9799f4f..08a08d2 100644
+--- a/readme.md
++++ b/readme.md
+@@ -2,6 +2,11 @@
+ The existing code base and API of the CARLA simulator and the OpenAI Gym third party environment developed for the ROAR project mainly focuses on the interaction between one vehicle and the environment. However, in fact, one agent not only interacts with the environment but also interaction with other agents exists in the same environment in the realistic situation.
+ 
+ In this project, a new Gym-CARLA environment, ROARMultiEnv, has been developed to support multi-agent autonomous driving simulation. It is based on CARLA API and uses Ray Library. A simple_agent was developed for testing.
++
++
++Other things for readme:
++1. stable_baseline3 modification
++2. requirements installation  -->  regenerate one.
+ ```
+ git clone https://github.com/Allison-1999/ROAR.git ROAR1
+ git clone https://github.com/Allison-1999/ROAR.git ROAR2
+@@ -23,13 +28,19 @@ for ROAR2:
+     "show_sensors_data": true,
+     "save_sensor_data": false
+     
+-also change the following file: ROAR_gym/configurations/ppo_configuration.py
++    [NOTICE] In the Berkeley minor map, the spawn points are too close to each other. 
++    So even when you set different spawn points, you may still get the `ValueError: Cannot spawn actor at ID [1]. Error: Spawn failed because of collision at spawn position`\
++    In that case, please make sure you start one client first, and start the second client a few second later.
++    
++    In this case, you may also need to restart the UE4 engine, since the vehicle from a previous failure client may still remain in the simulation world and hold the spawn point.
++    
++also change the `"run_name"` in the following file: ROAR_gym/configurations/ppo_configuration.py
+ for ROAR1:
+ misc_params = {
+   "env_name": 'roar-e2e-ppo-v0',
+   "run_fps": 8,  # TODO Link to the environment RUN_FPS
+   "model_directory": Path("./output/PPOe2e_Run_1"),
+-  "run_name": "Run 2",
++  "run_name": "ROAR1",
+   "total_timesteps": int(1e6),
+ }
+ 
+@@ -38,12 +49,13 @@ misc_params = {
+   "env_name": 'roar-e2e-ppo-v0',
+   "run_fps": 8,  # TODO Link to the environment RUN_FPS
+   "model_directory": Path("./output/PPOe2e_Run_1"),
+-  "run_name": "Run 1",
++  "run_name": "ROAR2",
+   "total_timesteps": int(1e6),
+ }
+ 
+-
+-
++if you got the following error, please change the `"run_name"` to a new string that never been used, for instance, you can append your nickname to it.
++wandb: Currently logged in as: jingjingwei. Use `wandb login --relogin` to force relogin
++wandb: ERROR Error while calling W&B API: Error 1062: Duplicate entry '908467-Run 1' for key 'PRIMARY' (<Response [409]>)
+ 
+ 
+ 

@@ -1,0 +1,1 @@
+{"Episode reward": -289.25, "Episode actual reward": -481.63611384227653, "Checkpoint reached": 75, "largest_steps": 116, "highest_speed": 42.861340283424354, "avg10_checkpoints": 63.0, "avg10_score": -362.05, "avg10_actual_score": -432.0788298031266, "highest_actual_score": -426.2008894707618, "_timestamp": 1652045666, "_runtime": 112, "_step": 399, "_wandb": {"runtime": 106}}

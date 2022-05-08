@@ -1,0 +1,22 @@
+diff --git a/ROAR_gym/configurations/ppo_configuration.py b/ROAR_gym/configurations/ppo_configuration.py
+index 19bb241..28b1d28 100644
+--- a/ROAR_gym/configurations/ppo_configuration.py
++++ b/ROAR_gym/configurations/ppo_configuration.py
+@@ -11,7 +11,7 @@ misc_params = {
+   "env_name": 'roar-e2e-ppo-v0',
+   "run_fps": 8,  # TODO Link to the environment RUN_FPS
+   "model_directory": Path("./output/PPOe2e_Run_1"),
+-  "run_name": "Run 2",
++  "run_name": "ROAR2",
+   "total_timesteps": int(1e6),
+ }
+ 
+diff --git a/ROAR_gym/configurations/wandb_configuration.json b/ROAR_gym/configurations/wandb_configuration.json
+index e8e3ba7..18e6df2 100644
+--- a/ROAR_gym/configurations/wandb_configuration.json
++++ b/ROAR_gym/configurations/wandb_configuration.json
+@@ -1 +1 @@
+-{"run_id": "Run 2", "name": "", "project_name": "ROAR", "entity": "jingjingwei"}
+\ No newline at end of file
++{"run_id": "ROAR2", "name": "", "project_name": "ROAR", "entity": "jingjingwei"}
+\ No newline at end of file
