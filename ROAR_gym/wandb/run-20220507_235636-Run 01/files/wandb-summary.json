@@ -1,0 +1,1 @@
+{"avg10_checkpoints": 42.857142857142854, "avg10_actual_score": -495.97978561825863, "highest_actual_score": -292.01906021079446, "_runtime": 212, "avg10_score": -242.42857142857142, "highest_speed": 38.200349689566366, "largest_steps": 41, "Episode reward": -116.75, "Episode actual reward": -718.1281399599862, "_step": 531, "_timestamp": 1651993117, "Checkpoint reached": 45}

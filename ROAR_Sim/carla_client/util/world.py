@@ -30,7 +30,7 @@ class World(object):
         self.carla_settings: CarlaConfig = carla_settings
         self.agent_settings: AgentConfig = agent_settings
         self.carla_world: carla.World = carla_world
-        self.clean_spawned_all_actors()
+        # self.clean_spawned_all_actors() # Jingjing: The destroy of current vehicle, should not lead to other vehicle's destory
         self.actor_role_name = carla_settings.role_name
         try:
             self.map = self.carla_world.get_map()
@@ -309,22 +309,22 @@ class World(object):
         ]
         for actor in actors:
             if actor is not None:
-                actor.destroy()
+                actor.destroy() # Jingjing: Player will be destoryed here individually, and won't effect the player in other world.
 
         self._destroy_custom_sensors()
         for npc, _ in self.npcs_mapping.values():
             npc.destroy()
+        # Jingjing: if clean all actors in the world, then the vehicle and sensors that belongs to other clients will also be destroyed
+        # self.clean_spawned_all_actors() # Jingjing: The destroy of current vehicle, should not lead to other vehicle's destory
 
-        self.clean_spawned_all_actors()
-
-    def clean_spawned_all_actors(self):
+    def clean_spawned_all_actors(self): # Jingjing: The destroy of current vehicle, should not lead to other vehicle's destory
         """
         This function is to clean all actors that are not traffic light/signals
         Returns:
-
         """
-        self.carla_world.tick()
-        for actor in self.carla_world.get_actors():
-            if "traffic" not in actor.type_id and "spectator" not in actor.type_id:
-                actor.destroy()
-        self.carla_world.tick()
+        # self.carla_world.tick()
+        # for actor in self.carla_world.get_actors():
+        #     if "traffic" not in actor.type_id and "spectator" not in actor.type_id:
+        #         actor.destroy()
+        # self.carla_world.tick()
+        return

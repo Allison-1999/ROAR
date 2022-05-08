@@ -37,7 +37,6 @@ else:
     }
 
 
-
 class ROARppoEnvE2E(ROAREnv):
     def __init__(self, params):
         super().__init__(params)
@@ -85,6 +84,7 @@ class ROARppoEnvE2E(ROAREnv):
         self.crash_step=0
         self.reward_step=0
         self.reset_by_crash=True
+        self.is_crashing = False
         self.fps=8
         self.crash_tol=5
         self.reward_tol=4
@@ -206,6 +206,7 @@ class ROARppoEnvE2E(ROAREnv):
 
         # if self.steps-self.crash_step>self.crash_tol*self.fps:
         if self.carla_runner.get_num_collision() > 0:
+            self.is_crashing = True
             if self.reset_by_crash:
                 reward -= 200#0# /(min(total_num_cross,10))
             # self.crash_check = True
@@ -303,7 +304,12 @@ class ROARppoEnvE2E(ROAREnv):
             self.largest_steps=self.steps
         elif self.complete_loop and self.agent.finish_loop and self.steps<self.largest_steps:
             self.largest_steps=self.steps
-        super(ROARppoEnvE2E, self).reset()
+
+        # reset
+        if self.is_crashing:
+            super(ROARppoEnvE2E, self).reset_by_collision()
+        else:
+            super(ROARppoEnvE2E, self).reset()
         self.steps=0
         self.crash_step=0
         self.reward_step=0

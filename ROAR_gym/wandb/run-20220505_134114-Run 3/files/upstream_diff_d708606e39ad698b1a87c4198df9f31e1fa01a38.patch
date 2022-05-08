@@ -1,0 +1,296 @@
+diff --git a/Bridges/__pycache__/__init__.cpython-37.pyc b/Bridges/__pycache__/__init__.cpython-37.pyc
+index 748c80a..893843a 100644
+Binary files a/Bridges/__pycache__/__init__.cpython-37.pyc and b/Bridges/__pycache__/__init__.cpython-37.pyc differ
+diff --git a/Bridges/__pycache__/bridge.cpython-37.pyc b/Bridges/__pycache__/bridge.cpython-37.pyc
+index d31942c..6290ebe 100644
+Binary files a/Bridges/__pycache__/bridge.cpython-37.pyc and b/Bridges/__pycache__/bridge.cpython-37.pyc differ
+diff --git a/Bridges/__pycache__/carla_bridge.cpython-37.pyc b/Bridges/__pycache__/carla_bridge.cpython-37.pyc
+index 2f8c9c7..c364856 100644
+Binary files a/Bridges/__pycache__/carla_bridge.cpython-37.pyc and b/Bridges/__pycache__/carla_bridge.cpython-37.pyc differ
+diff --git a/ROAR/__pycache__/__init__.cpython-37.pyc b/ROAR/__pycache__/__init__.cpython-37.pyc
+index 455e188..c8c0623 100644
+Binary files a/ROAR/__pycache__/__init__.cpython-37.pyc and b/ROAR/__pycache__/__init__.cpython-37.pyc differ
+diff --git a/ROAR/agent_module/__pycache__/__init__.cpython-37.pyc b/ROAR/agent_module/__pycache__/__init__.cpython-37.pyc
+index 84e3be8..1009acf 100644
+Binary files a/ROAR/agent_module/__pycache__/__init__.cpython-37.pyc and b/ROAR/agent_module/__pycache__/__init__.cpython-37.pyc differ
+diff --git a/ROAR/agent_module/__pycache__/agent.cpython-37.pyc b/ROAR/agent_module/__pycache__/agent.cpython-37.pyc
+index 0b1ba9f..9742dcc 100644
+Binary files a/ROAR/agent_module/__pycache__/agent.cpython-37.pyc and b/ROAR/agent_module/__pycache__/agent.cpython-37.pyc differ
+diff --git a/ROAR/agent_module/__pycache__/michael_pid_agent.cpython-37.pyc b/ROAR/agent_module/__pycache__/michael_pid_agent.cpython-37.pyc
+index 841d66d..55b89fb 100644
+Binary files a/ROAR/agent_module/__pycache__/michael_pid_agent.cpython-37.pyc and b/ROAR/agent_module/__pycache__/michael_pid_agent.cpython-37.pyc differ
+diff --git a/ROAR/agent_module/__pycache__/occupancy_map_agent.cpython-37.pyc b/ROAR/agent_module/__pycache__/occupancy_map_agent.cpython-37.pyc
+index 03e1014..92b14a2 100644
+Binary files a/ROAR/agent_module/__pycache__/occupancy_map_agent.cpython-37.pyc and b/ROAR/agent_module/__pycache__/occupancy_map_agent.cpython-37.pyc differ
+diff --git a/ROAR/agent_module/__pycache__/potential_field_agent.cpython-37.pyc b/ROAR/agent_module/__pycache__/potential_field_agent.cpython-37.pyc
+index cfa960a..42f4506 100644
+Binary files a/ROAR/agent_module/__pycache__/potential_field_agent.cpython-37.pyc and b/ROAR/agent_module/__pycache__/potential_field_agent.cpython-37.pyc differ
+diff --git a/ROAR/agent_module/__pycache__/pure_pursuit_agent.cpython-37.pyc b/ROAR/agent_module/__pycache__/pure_pursuit_agent.cpython-37.pyc
+index c0ee652..303da5c 100644
+Binary files a/ROAR/agent_module/__pycache__/pure_pursuit_agent.cpython-37.pyc and b/ROAR/agent_module/__pycache__/pure_pursuit_agent.cpython-37.pyc differ
+diff --git a/ROAR/agent_module/special_agents/__pycache__/__init__.cpython-37.pyc b/ROAR/agent_module/special_agents/__pycache__/__init__.cpython-37.pyc
+index 4204108..e70abce 100644
+Binary files a/ROAR/agent_module/special_agents/__pycache__/__init__.cpython-37.pyc and b/ROAR/agent_module/special_agents/__pycache__/__init__.cpython-37.pyc differ
+diff --git a/ROAR/agent_module/special_agents/__pycache__/recording_agent.cpython-37.pyc b/ROAR/agent_module/special_agents/__pycache__/recording_agent.cpython-37.pyc
+index 98a2b8a..3cd2956 100644
+Binary files a/ROAR/agent_module/special_agents/__pycache__/recording_agent.cpython-37.pyc and b/ROAR/agent_module/special_agents/__pycache__/recording_agent.cpython-37.pyc differ
+diff --git a/ROAR/configurations/__pycache__/configuration.cpython-37.pyc b/ROAR/configurations/__pycache__/configuration.cpython-37.pyc
+index 9449546..7e2c553 100644
+Binary files a/ROAR/configurations/__pycache__/configuration.cpython-37.pyc and b/ROAR/configurations/__pycache__/configuration.cpython-37.pyc differ
+diff --git a/ROAR/control_module/__pycache__/__init__.cpython-37.pyc b/ROAR/control_module/__pycache__/__init__.cpython-37.pyc
+index 82c261f..9e685ff 100644
+Binary files a/ROAR/control_module/__pycache__/__init__.cpython-37.pyc and b/ROAR/control_module/__pycache__/__init__.cpython-37.pyc differ
+diff --git a/ROAR/control_module/__pycache__/controller.cpython-37.pyc b/ROAR/control_module/__pycache__/controller.cpython-37.pyc
+index 6443e8f..90ac7c5 100644
+Binary files a/ROAR/control_module/__pycache__/controller.cpython-37.pyc and b/ROAR/control_module/__pycache__/controller.cpython-37.pyc differ
+diff --git a/ROAR/control_module/__pycache__/pid_controller.cpython-37.pyc b/ROAR/control_module/__pycache__/pid_controller.cpython-37.pyc
+index 391e7bc..867822a 100644
+Binary files a/ROAR/control_module/__pycache__/pid_controller.cpython-37.pyc and b/ROAR/control_module/__pycache__/pid_controller.cpython-37.pyc differ
+diff --git a/ROAR/control_module/__pycache__/pure_pursuit_control.cpython-37.pyc b/ROAR/control_module/__pycache__/pure_pursuit_control.cpython-37.pyc
+index 0e2ca63..a4696b6 100644
+Binary files a/ROAR/control_module/__pycache__/pure_pursuit_control.cpython-37.pyc and b/ROAR/control_module/__pycache__/pure_pursuit_control.cpython-37.pyc differ
+diff --git a/ROAR/perception_module/__pycache__/__init__.cpython-37.pyc b/ROAR/perception_module/__pycache__/__init__.cpython-37.pyc
+index c12f588..5c42b9d 100644
+Binary files a/ROAR/perception_module/__pycache__/__init__.cpython-37.pyc and b/ROAR/perception_module/__pycache__/__init__.cpython-37.pyc differ
+diff --git a/ROAR/perception_module/__pycache__/depth_to_pointcloud_detector.cpython-37.pyc b/ROAR/perception_module/__pycache__/depth_to_pointcloud_detector.cpython-37.pyc
+index 52c9a49..2f0fb36 100644
+Binary files a/ROAR/perception_module/__pycache__/depth_to_pointcloud_detector.cpython-37.pyc and b/ROAR/perception_module/__pycache__/depth_to_pointcloud_detector.cpython-37.pyc differ
+diff --git a/ROAR/perception_module/__pycache__/detector.cpython-37.pyc b/ROAR/perception_module/__pycache__/detector.cpython-37.pyc
+index f6e7a5f..5eef87c 100644
+Binary files a/ROAR/perception_module/__pycache__/detector.cpython-37.pyc and b/ROAR/perception_module/__pycache__/detector.cpython-37.pyc differ
+diff --git a/ROAR/perception_module/__pycache__/ground_plane_detector.cpython-37.pyc b/ROAR/perception_module/__pycache__/ground_plane_detector.cpython-37.pyc
+index a3b9d51..105e490 100644
+Binary files a/ROAR/perception_module/__pycache__/ground_plane_detector.cpython-37.pyc and b/ROAR/perception_module/__pycache__/ground_plane_detector.cpython-37.pyc differ
+diff --git a/ROAR/perception_module/__pycache__/obstacle_detector.cpython-37.pyc b/ROAR/perception_module/__pycache__/obstacle_detector.cpython-37.pyc
+index 98ce179..0fbbbef 100644
+Binary files a/ROAR/perception_module/__pycache__/obstacle_detector.cpython-37.pyc and b/ROAR/perception_module/__pycache__/obstacle_detector.cpython-37.pyc differ
+diff --git a/ROAR/perception_module/__pycache__/obstacle_from_depth.cpython-37.pyc b/ROAR/perception_module/__pycache__/obstacle_from_depth.cpython-37.pyc
+index d9da805..3bda57a 100644
+Binary files a/ROAR/perception_module/__pycache__/obstacle_from_depth.cpython-37.pyc and b/ROAR/perception_module/__pycache__/obstacle_from_depth.cpython-37.pyc differ
+diff --git a/ROAR/perception_module/legacy/__pycache__/__init__.cpython-37.pyc b/ROAR/perception_module/legacy/__pycache__/__init__.cpython-37.pyc
+index 12e72a4..fe8d5a1 100644
+Binary files a/ROAR/perception_module/legacy/__pycache__/__init__.cpython-37.pyc and b/ROAR/perception_module/legacy/__pycache__/__init__.cpython-37.pyc differ
+diff --git a/ROAR/perception_module/legacy/__pycache__/point_cloud_detector.cpython-37.pyc b/ROAR/perception_module/legacy/__pycache__/point_cloud_detector.cpython-37.pyc
+index aca849f..2a8eb3e 100644
+Binary files a/ROAR/perception_module/legacy/__pycache__/point_cloud_detector.cpython-37.pyc and b/ROAR/perception_module/legacy/__pycache__/point_cloud_detector.cpython-37.pyc differ
+diff --git a/ROAR/planning_module/__pycache__/__init__.cpython-37.pyc b/ROAR/planning_module/__pycache__/__init__.cpython-37.pyc
+index 62e6f0c..3e54513 100644
+Binary files a/ROAR/planning_module/__pycache__/__init__.cpython-37.pyc and b/ROAR/planning_module/__pycache__/__init__.cpython-37.pyc differ
+diff --git a/ROAR/planning_module/__pycache__/abstract_planner.cpython-37.pyc b/ROAR/planning_module/__pycache__/abstract_planner.cpython-37.pyc
+index dad5d0d..990dca0 100644
+Binary files a/ROAR/planning_module/__pycache__/abstract_planner.cpython-37.pyc and b/ROAR/planning_module/__pycache__/abstract_planner.cpython-37.pyc differ
+diff --git a/ROAR/planning_module/behavior_planner/__pycache__/__init__.cpython-37.pyc b/ROAR/planning_module/behavior_planner/__pycache__/__init__.cpython-37.pyc
+index 7bc0045..51a7efa 100644
+Binary files a/ROAR/planning_module/behavior_planner/__pycache__/__init__.cpython-37.pyc and b/ROAR/planning_module/behavior_planner/__pycache__/__init__.cpython-37.pyc differ
+diff --git a/ROAR/planning_module/behavior_planner/__pycache__/behavior_planner.cpython-37.pyc b/ROAR/planning_module/behavior_planner/__pycache__/behavior_planner.cpython-37.pyc
+index 174b209..4dba087 100644
+Binary files a/ROAR/planning_module/behavior_planner/__pycache__/behavior_planner.cpython-37.pyc and b/ROAR/planning_module/behavior_planner/__pycache__/behavior_planner.cpython-37.pyc differ
+diff --git a/ROAR/planning_module/local_planner/__pycache__/__init__.cpython-37.pyc b/ROAR/planning_module/local_planner/__pycache__/__init__.cpython-37.pyc
+index 19daef3..c32e87d 100644
+Binary files a/ROAR/planning_module/local_planner/__pycache__/__init__.cpython-37.pyc and b/ROAR/planning_module/local_planner/__pycache__/__init__.cpython-37.pyc differ
+diff --git a/ROAR/planning_module/local_planner/__pycache__/local_planner.cpython-37.pyc b/ROAR/planning_module/local_planner/__pycache__/local_planner.cpython-37.pyc
+index 54bd8f0..d6d0e38 100644
+Binary files a/ROAR/planning_module/local_planner/__pycache__/local_planner.cpython-37.pyc and b/ROAR/planning_module/local_planner/__pycache__/local_planner.cpython-37.pyc differ
+diff --git a/ROAR/planning_module/local_planner/__pycache__/loop_simple_waypoint_following_local_planner.cpython-37.pyc b/ROAR/planning_module/local_planner/__pycache__/loop_simple_waypoint_following_local_planner.cpython-37.pyc
+index 9b54d47..054e40e 100644
+Binary files a/ROAR/planning_module/local_planner/__pycache__/loop_simple_waypoint_following_local_planner.cpython-37.pyc and b/ROAR/planning_module/local_planner/__pycache__/loop_simple_waypoint_following_local_planner.cpython-37.pyc differ
+diff --git a/ROAR/planning_module/local_planner/__pycache__/potential_field_planner.cpython-37.pyc b/ROAR/planning_module/local_planner/__pycache__/potential_field_planner.cpython-37.pyc
+index 7fe96e6..62f47a3 100644
+Binary files a/ROAR/planning_module/local_planner/__pycache__/potential_field_planner.cpython-37.pyc and b/ROAR/planning_module/local_planner/__pycache__/potential_field_planner.cpython-37.pyc differ
+diff --git a/ROAR/planning_module/local_planner/__pycache__/simple_waypoint_following_local_planner.cpython-37.pyc b/ROAR/planning_module/local_planner/__pycache__/simple_waypoint_following_local_planner.cpython-37.pyc
+index f666feb..e09db3f 100644
+Binary files a/ROAR/planning_module/local_planner/__pycache__/simple_waypoint_following_local_planner.cpython-37.pyc and b/ROAR/planning_module/local_planner/__pycache__/simple_waypoint_following_local_planner.cpython-37.pyc differ
+diff --git a/ROAR/planning_module/mission_planner/__pycache__/__init__.cpython-37.pyc b/ROAR/planning_module/mission_planner/__pycache__/__init__.cpython-37.pyc
+index e339030..8dece62 100644
+Binary files a/ROAR/planning_module/mission_planner/__pycache__/__init__.cpython-37.pyc and b/ROAR/planning_module/mission_planner/__pycache__/__init__.cpython-37.pyc differ
+diff --git a/ROAR/planning_module/mission_planner/__pycache__/mission_planner.cpython-37.pyc b/ROAR/planning_module/mission_planner/__pycache__/mission_planner.cpython-37.pyc
+index 3cf685f..d0fbb37 100644
+Binary files a/ROAR/planning_module/mission_planner/__pycache__/mission_planner.cpython-37.pyc and b/ROAR/planning_module/mission_planner/__pycache__/mission_planner.cpython-37.pyc differ
+diff --git a/ROAR/planning_module/mission_planner/__pycache__/waypoint_following_mission_planner.cpython-37.pyc b/ROAR/planning_module/mission_planner/__pycache__/waypoint_following_mission_planner.cpython-37.pyc
+index 0250514..77233df 100644
+Binary files a/ROAR/planning_module/mission_planner/__pycache__/waypoint_following_mission_planner.cpython-37.pyc and b/ROAR/planning_module/mission_planner/__pycache__/waypoint_following_mission_planner.cpython-37.pyc differ
+diff --git a/ROAR/utilities_module/__pycache__/__init__.cpython-37.pyc b/ROAR/utilities_module/__pycache__/__init__.cpython-37.pyc
+index 00ab4de..2a15a16 100644
+Binary files a/ROAR/utilities_module/__pycache__/__init__.cpython-37.pyc and b/ROAR/utilities_module/__pycache__/__init__.cpython-37.pyc differ
+diff --git a/ROAR/utilities_module/__pycache__/camera_models.cpython-37.pyc b/ROAR/utilities_module/__pycache__/camera_models.cpython-37.pyc
+index 86f93dc..8dba6e8 100644
+Binary files a/ROAR/utilities_module/__pycache__/camera_models.cpython-37.pyc and b/ROAR/utilities_module/__pycache__/camera_models.cpython-37.pyc differ
+diff --git a/ROAR/utilities_module/__pycache__/data_structures_models.cpython-37.pyc b/ROAR/utilities_module/__pycache__/data_structures_models.cpython-37.pyc
+index d636bc0..466de9c 100644
+Binary files a/ROAR/utilities_module/__pycache__/data_structures_models.cpython-37.pyc and b/ROAR/utilities_module/__pycache__/data_structures_models.cpython-37.pyc differ
+diff --git a/ROAR/utilities_module/__pycache__/errors.cpython-37.pyc b/ROAR/utilities_module/__pycache__/errors.cpython-37.pyc
+index d7e8cad..b84d89b 100644
+Binary files a/ROAR/utilities_module/__pycache__/errors.cpython-37.pyc and b/ROAR/utilities_module/__pycache__/errors.cpython-37.pyc differ
+diff --git a/ROAR/utilities_module/__pycache__/module.cpython-37.pyc b/ROAR/utilities_module/__pycache__/module.cpython-37.pyc
+index 1c8adb5..448e375 100644
+Binary files a/ROAR/utilities_module/__pycache__/module.cpython-37.pyc and b/ROAR/utilities_module/__pycache__/module.cpython-37.pyc differ
+diff --git a/ROAR/utilities_module/__pycache__/occupancy_map.cpython-37.pyc b/ROAR/utilities_module/__pycache__/occupancy_map.cpython-37.pyc
+index 6e2c1e3..95f385a 100644
+Binary files a/ROAR/utilities_module/__pycache__/occupancy_map.cpython-37.pyc and b/ROAR/utilities_module/__pycache__/occupancy_map.cpython-37.pyc differ
+diff --git a/ROAR/utilities_module/__pycache__/utilities.cpython-37.pyc b/ROAR/utilities_module/__pycache__/utilities.cpython-37.pyc
+index 7341979..9b0a837 100644
+Binary files a/ROAR/utilities_module/__pycache__/utilities.cpython-37.pyc and b/ROAR/utilities_module/__pycache__/utilities.cpython-37.pyc differ
+diff --git a/ROAR/utilities_module/__pycache__/vehicle_models.cpython-37.pyc b/ROAR/utilities_module/__pycache__/vehicle_models.cpython-37.pyc
+index 1152170..6fa437a 100644
+Binary files a/ROAR/utilities_module/__pycache__/vehicle_models.cpython-37.pyc and b/ROAR/utilities_module/__pycache__/vehicle_models.cpython-37.pyc differ
+diff --git a/ROAR_Sim/__pycache__/__init__.cpython-37.pyc b/ROAR_Sim/__pycache__/__init__.cpython-37.pyc
+index 717c785..a39046d 100644
+Binary files a/ROAR_Sim/__pycache__/__init__.cpython-37.pyc and b/ROAR_Sim/__pycache__/__init__.cpython-37.pyc differ
+diff --git a/ROAR_Sim/carla_client/__pycache__/__init__.cpython-37.pyc b/ROAR_Sim/carla_client/__pycache__/__init__.cpython-37.pyc
+index ad18fd4..c12bd72 100644
+Binary files a/ROAR_Sim/carla_client/__pycache__/__init__.cpython-37.pyc and b/ROAR_Sim/carla_client/__pycache__/__init__.cpython-37.pyc differ
+diff --git a/ROAR_Sim/carla_client/__pycache__/carla_runner.cpython-37.pyc b/ROAR_Sim/carla_client/__pycache__/carla_runner.cpython-37.pyc
+index 34f7870..b90f5ce 100644
+Binary files a/ROAR_Sim/carla_client/__pycache__/carla_runner.cpython-37.pyc and b/ROAR_Sim/carla_client/__pycache__/carla_runner.cpython-37.pyc differ
+diff --git a/ROAR_Sim/carla_client/util/__pycache__/camera_manager.cpython-37.pyc b/ROAR_Sim/carla_client/util/__pycache__/camera_manager.cpython-37.pyc
+index cab1782..b19abb6 100644
+Binary files a/ROAR_Sim/carla_client/util/__pycache__/camera_manager.cpython-37.pyc and b/ROAR_Sim/carla_client/util/__pycache__/camera_manager.cpython-37.pyc differ
+diff --git a/ROAR_Sim/carla_client/util/__pycache__/hud.cpython-37.pyc b/ROAR_Sim/carla_client/util/__pycache__/hud.cpython-37.pyc
+index e5483e6..df1a284 100644
+Binary files a/ROAR_Sim/carla_client/util/__pycache__/hud.cpython-37.pyc and b/ROAR_Sim/carla_client/util/__pycache__/hud.cpython-37.pyc differ
+diff --git a/ROAR_Sim/carla_client/util/__pycache__/keyboard_control.cpython-37.pyc b/ROAR_Sim/carla_client/util/__pycache__/keyboard_control.cpython-37.pyc
+index 67f0c8a..ce64669 100644
+Binary files a/ROAR_Sim/carla_client/util/__pycache__/keyboard_control.cpython-37.pyc and b/ROAR_Sim/carla_client/util/__pycache__/keyboard_control.cpython-37.pyc differ
+diff --git a/ROAR_Sim/carla_client/util/__pycache__/sensors.cpython-37.pyc b/ROAR_Sim/carla_client/util/__pycache__/sensors.cpython-37.pyc
+index a98bf88..31473c6 100644
+Binary files a/ROAR_Sim/carla_client/util/__pycache__/sensors.cpython-37.pyc and b/ROAR_Sim/carla_client/util/__pycache__/sensors.cpython-37.pyc differ
+diff --git a/ROAR_Sim/carla_client/util/__pycache__/utilities.cpython-37.pyc b/ROAR_Sim/carla_client/util/__pycache__/utilities.cpython-37.pyc
+index 15303f6..c8686a2 100644
+Binary files a/ROAR_Sim/carla_client/util/__pycache__/utilities.cpython-37.pyc and b/ROAR_Sim/carla_client/util/__pycache__/utilities.cpython-37.pyc differ
+diff --git a/ROAR_Sim/carla_client/util/__pycache__/world.cpython-37.pyc b/ROAR_Sim/carla_client/util/__pycache__/world.cpython-37.pyc
+index a3db8ca..dbbb536 100644
+Binary files a/ROAR_Sim/carla_client/util/__pycache__/world.cpython-37.pyc and b/ROAR_Sim/carla_client/util/__pycache__/world.cpython-37.pyc differ
+diff --git a/ROAR_Sim/configurations/__pycache__/configuration.cpython-37.pyc b/ROAR_Sim/configurations/__pycache__/configuration.cpython-37.pyc
+index 683efc4..704176d 100644
+Binary files a/ROAR_Sim/configurations/__pycache__/configuration.cpython-37.pyc and b/ROAR_Sim/configurations/__pycache__/configuration.cpython-37.pyc differ
+diff --git a/ROAR_gym/ROAR_Gym/__init__.py b/ROAR_gym/ROAR_Gym/__init__.py
+index 2989d64..a4d9062 100644
+--- a/ROAR_gym/ROAR_Gym/__init__.py
++++ b/ROAR_gym/ROAR_Gym/__init__.py
+@@ -20,7 +20,7 @@ register(
+     entry_point='ROAR_Gym.envs:ROAREnvE2E',
+ )
+ 
+-register(
+-    id='roar-multi-v0',
+-    entry_point='ROAR_Gym.envs:ROARMultiEnv',
+-)
+\ No newline at end of file
++# register(
++#     id='roar-multi-v0',
++#     entry_point='ROAR_Gym.envs:ROARMultiEnv',
++# )
+\ No newline at end of file
+diff --git a/ROAR_gym/ROAR_Gym/envs/__init__.py b/ROAR_gym/ROAR_Gym/envs/__init__.py
+index 21612d9..9f6ffa6 100644
+--- a/ROAR_gym/ROAR_Gym/envs/__init__.py
++++ b/ROAR_gym/ROAR_Gym/envs/__init__.py
+@@ -2,6 +2,6 @@ from ROAR_Gym.envs.roar_env import ROAREnv
+ from ROAR_Gym.envs.roar_pid_env import ROARPIDEnv
+ from ROAR_Gym.envs.roar_env_e2e import ROAREnvE2E
+ from ROAR_Gym.envs.e2eModel_roar_env import ROARppoEnvE2E
+-from ROAR_Gym.envs.roar_multi_env import ROARMultiEnv
++# from ROAR_Gym.envs.roar_multi_env import ROARMultiEnv
+ from ROAR_Gym.envs.line_detect import *
+ 
+diff --git a/ROAR_gym/configurations/ppo_configuration.py b/ROAR_gym/configurations/ppo_configuration.py
+index 31170af..498c6d6 100644
+--- a/ROAR_gym/configurations/ppo_configuration.py
++++ b/ROAR_gym/configurations/ppo_configuration.py
+@@ -10,8 +10,8 @@ sys.path.append(Path(os.getcwd()).parent.as_posix())
+ misc_params = {
+   "env_name": 'roar-e2e-ppo-v0',
+   "run_fps": 8,  # TODO Link to the environment RUN_FPS
+-  "model_directory": Path("./output/PPOe2e_Run_29"),
+-  "run_name": "Run 29",
++  "model_directory": Path("./output/PPOe2e_Run_1"),
++  "run_name": "Run 3",
+   "total_timesteps": int(1e6),
+ }
+ 
+diff --git a/ROAR_gym/configurations/wandb_configuration.json b/ROAR_gym/configurations/wandb_configuration.json
+index 44a45f0..7d3a9ca 100644
+--- a/ROAR_gym/configurations/wandb_configuration.json
++++ b/ROAR_gym/configurations/wandb_configuration.json
+@@ -1 +1 @@
+-{"run_id": "Run 29", "name": "", "project_name": "Baseline", "entity": "roar"}
+\ No newline at end of file
++{"run_id": "Run 3", "name": "", "project_name": "ROAR", "entity": "jingjingwei"}
+\ No newline at end of file
+diff --git a/ROAR_gym/e2eModel.py b/ROAR_gym/e2eModel.py
+index fbd222f..63c342a 100644
+--- a/ROAR_gym/e2eModel.py
++++ b/ROAR_gym/e2eModel.py
+@@ -8,7 +8,7 @@ TODO: Before Running this file make the following changes:
+     self._last_obs = np.nan_to_num(self._last_obs)
+ 
+ to the following file:
+-    ROAR\venv\Lib\site-packages\stable_baselines3\common\on_policy_algorithm.py
++    ROAR\venv\Lib\site-packages\stable_baselines3\common\on_policy_algorithm.py  TODO: (solved by install it directly) cannot find this file.
+ 
+ 2. Add this line after line 167 such that:
+ with th.no_grad():
+@@ -86,7 +86,7 @@ warnings.filterwarnings('ignore')
+ try:
+     from ROAR_Gym.envs.roar_env import LoggingCallback
+ except:
+-    from ROAR_Gym.ROAR_Gym.envs.roar_env import LoggingCallback
++    from ROAR_gym.ROAR_Gym.envs.roar_env import LoggingCallback
+ 
+ # os.environ["CUDA_VISIBLE_DEVICES"]="0,1"
+ #  Parameters & Constants
+@@ -156,7 +156,7 @@ def wandb_run_init(wandb_hp_config, load=False, requested_run_id=None, use_rando
+ 
+     # Create a wandb run variable
+     wandb.tensorboard.patch(
+-        tensorboardX=False,
++        # tensorboardX=False,
+         pytorch=True,
+     )
+     run = wandb.init(
+@@ -253,13 +253,13 @@ def main(pass_num):
+ 
+         print(f"Starting new run {run.id}")
+     else:
+-        # Load wandb run
++        # Load wandb run <-- TODO: What has been stored?
+         run = wandb_run_init(
+             wandb_hp_config,
+             load=True,
+         )
+ 
+-        # Load the model
++        # Load the model <-- TODO: redirect to new location.
+         model = PPO.load(
+             latest_model_path,
+             env=env,
+@@ -289,14 +289,14 @@ def main(pass_num):
+         callback=checkpoint_callback
+     )
+ 
+-    wandb_callback = WandbCallback(
++    wandb_callback = WandbCallback( # metadata: path, etc.
+         verbose=2,
+         model_save_path=f"models/{run.id}",
+         gradient_save_freq=PPO_params["n_steps"],
+         model_save_freq=wandb_saves["model_save_freq"],
+     )
+ 
+-    callbacks = CallbackList([
++    callbacks = CallbackList([ # TODO: Looks like it's needed to replace the entire callback
+         wandb_callback,
+         checkpoint_callback,
+         event_callback,
+diff --git a/readme.md b/readme.md
+index 5b12ca0..25639ef 100644
+--- a/readme.md
++++ b/readme.md
+@@ -23,7 +23,7 @@ ROAR/ROAR_Sim/configurations/npc_config.json
+ ### Some Concept
+ CARLA provides support for multi-agent through the following three core concepts.
+ - Actor: Actor is anything that participates in the simulation and can be moved around, for example, vehicles, pedestrians.
+-- Blueprint:Blueprint is the specific attributes definition of an actor. New actors initialized through a blueprint. 
++- Blueprint: Blueprint is the specific attributes definition of an actor. New actors initialized through a blueprint. 
+ - World: The world is the major ruler of the simulation. It represents the currently loaded map, and contains the setting of parameters of the current simulation environment and functions that create, control and destroy actors. CARLA provides carla.World as the default world setting. 
+ 
+ ### Result

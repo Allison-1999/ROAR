@@ -54,6 +54,8 @@ class CarlaRunner:
         self.controller = None
         self.display = None
         self.agent = None
+        self.vehicle = None
+
 
         self.npc_agents: Dict[npc_agent_class, Any] = {}
         self.agent_collision_counter = 0
@@ -72,6 +74,16 @@ class CarlaRunner:
 
         self.logger = logging.getLogger(__name__)
         self.timestep_counter = 0
+
+    def reset_vehicle_to_start_point(self):
+        # self.vehicle.set_transform(self.world.map.get_spawn_points()[1])
+        loc = carla.Location(-809.5368041992188, -689.7285766601562, 75.23312377929688)
+        rot = carla.Rotation(-2.182129144668579, 1.353726111119613e-05, -0.014190672896802425)
+        velocity = carla.Vector3D(7.291184425354004, 0.3368271291255951, -0.36976736783981323)
+        self.world.player.set_transform(carla.Transform(loc, rot))
+        self.world.player.set_target_velocity(velocity)
+        self.vehicle = self.carla_bridge. \
+            convert_vehicle_from_source_to_agent(self.world.player)
 
     def set_carla_world(self) -> Vehicle:
         """
@@ -117,9 +129,9 @@ class CarlaRunner:
                                               carla_setting=self.carla_settings
                                               )
             self.logger.debug("All settings done")
-
-            return self.carla_bridge. \
+            self.vehicle = self.carla_bridge. \
                 convert_vehicle_from_source_to_agent(self.world.player)
+            return self.vehicle
 
         except Exception as e:
             self.logger.error(

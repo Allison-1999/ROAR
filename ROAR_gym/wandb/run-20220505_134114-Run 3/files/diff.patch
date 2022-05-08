@@ -1,0 +1,121 @@
+diff --git a/ROAR_Sim/configurations/__pycache__/configuration.cpython-37.pyc b/ROAR_Sim/configurations/__pycache__/configuration.cpython-37.pyc
+index 925c8f2..704176d 100644
+Binary files a/ROAR_Sim/configurations/__pycache__/configuration.cpython-37.pyc and b/ROAR_Sim/configurations/__pycache__/configuration.cpython-37.pyc differ
+diff --git a/ROAR_gym/ROAR_Gym/__init__.py b/ROAR_gym/ROAR_Gym/__init__.py
+index 2989d64..a4d9062 100644
+--- a/ROAR_gym/ROAR_Gym/__init__.py
++++ b/ROAR_gym/ROAR_Gym/__init__.py
+@@ -20,7 +20,7 @@ register(
+     entry_point='ROAR_Gym.envs:ROAREnvE2E',
+ )
+ 
+-register(
+-    id='roar-multi-v0',
+-    entry_point='ROAR_Gym.envs:ROARMultiEnv',
+-)
+\ No newline at end of file
++# register(
++#     id='roar-multi-v0',
++#     entry_point='ROAR_Gym.envs:ROARMultiEnv',
++# )
+\ No newline at end of file
+diff --git a/ROAR_gym/ROAR_Gym/envs/__init__.py b/ROAR_gym/ROAR_Gym/envs/__init__.py
+index 21612d9..9f6ffa6 100644
+--- a/ROAR_gym/ROAR_Gym/envs/__init__.py
++++ b/ROAR_gym/ROAR_Gym/envs/__init__.py
+@@ -2,6 +2,6 @@ from ROAR_Gym.envs.roar_env import ROAREnv
+ from ROAR_Gym.envs.roar_pid_env import ROARPIDEnv
+ from ROAR_Gym.envs.roar_env_e2e import ROAREnvE2E
+ from ROAR_Gym.envs.e2eModel_roar_env import ROARppoEnvE2E
+-from ROAR_Gym.envs.roar_multi_env import ROARMultiEnv
++# from ROAR_Gym.envs.roar_multi_env import ROARMultiEnv
+ from ROAR_Gym.envs.line_detect import *
+ 
+diff --git a/ROAR_gym/configurations/ppo_configuration.py b/ROAR_gym/configurations/ppo_configuration.py
+index 31170af..498c6d6 100644
+--- a/ROAR_gym/configurations/ppo_configuration.py
++++ b/ROAR_gym/configurations/ppo_configuration.py
+@@ -10,8 +10,8 @@ sys.path.append(Path(os.getcwd()).parent.as_posix())
+ misc_params = {
+   "env_name": 'roar-e2e-ppo-v0',
+   "run_fps": 8,  # TODO Link to the environment RUN_FPS
+-  "model_directory": Path("./output/PPOe2e_Run_29"),
+-  "run_name": "Run 29",
++  "model_directory": Path("./output/PPOe2e_Run_1"),
++  "run_name": "Run 3",
+   "total_timesteps": int(1e6),
+ }
+ 
+diff --git a/ROAR_gym/configurations/wandb_configuration.json b/ROAR_gym/configurations/wandb_configuration.json
+index 44a45f0..7d3a9ca 100644
+--- a/ROAR_gym/configurations/wandb_configuration.json
++++ b/ROAR_gym/configurations/wandb_configuration.json
+@@ -1 +1 @@
+-{"run_id": "Run 29", "name": "", "project_name": "Baseline", "entity": "roar"}
+\ No newline at end of file
++{"run_id": "Run 3", "name": "", "project_name": "ROAR", "entity": "jingjingwei"}
+\ No newline at end of file
+diff --git a/ROAR_gym/e2eModel.py b/ROAR_gym/e2eModel.py
+index fbd222f..63c342a 100644
+--- a/ROAR_gym/e2eModel.py
++++ b/ROAR_gym/e2eModel.py
+@@ -8,7 +8,7 @@ TODO: Before Running this file make the following changes:
+     self._last_obs = np.nan_to_num(self._last_obs)
+ 
+ to the following file:
+-    ROAR\venv\Lib\site-packages\stable_baselines3\common\on_policy_algorithm.py
++    ROAR\venv\Lib\site-packages\stable_baselines3\common\on_policy_algorithm.py  TODO: (solved by install it directly) cannot find this file.
+ 
+ 2. Add this line after line 167 such that:
+ with th.no_grad():
+@@ -86,7 +86,7 @@ warnings.filterwarnings('ignore')
+ try:
+     from ROAR_Gym.envs.roar_env import LoggingCallback
+ except:
+-    from ROAR_Gym.ROAR_Gym.envs.roar_env import LoggingCallback
++    from ROAR_gym.ROAR_Gym.envs.roar_env import LoggingCallback
+ 
+ # os.environ["CUDA_VISIBLE_DEVICES"]="0,1"
+ #  Parameters & Constants
+@@ -156,7 +156,7 @@ def wandb_run_init(wandb_hp_config, load=False, requested_run_id=None, use_rando
+ 
+     # Create a wandb run variable
+     wandb.tensorboard.patch(
+-        tensorboardX=False,
++        # tensorboardX=False,
+         pytorch=True,
+     )
+     run = wandb.init(
+@@ -253,13 +253,13 @@ def main(pass_num):
+ 
+         print(f"Starting new run {run.id}")
+     else:
+-        # Load wandb run
++        # Load wandb run <-- TODO: What has been stored?
+         run = wandb_run_init(
+             wandb_hp_config,
+             load=True,
+         )
+ 
+-        # Load the model
++        # Load the model <-- TODO: redirect to new location.
+         model = PPO.load(
+             latest_model_path,
+             env=env,
+@@ -289,14 +289,14 @@ def main(pass_num):
+         callback=checkpoint_callback
+     )
+ 
+-    wandb_callback = WandbCallback(
++    wandb_callback = WandbCallback( # metadata: path, etc.
+         verbose=2,
+         model_save_path=f"models/{run.id}",
+         gradient_save_freq=PPO_params["n_steps"],
+         model_save_freq=wandb_saves["model_save_freq"],
+     )
+ 
+-    callbacks = CallbackList([
++    callbacks = CallbackList([ # TODO: Looks like it's needed to replace the entire callback
+         wandb_callback,
+         checkpoint_callback,
+         event_callback,

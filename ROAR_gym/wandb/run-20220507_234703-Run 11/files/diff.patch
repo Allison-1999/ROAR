@@ -1,0 +1,187 @@
+diff --git a/ROAR_Sim/carla_client/__pycache__/carla_runner.cpython-37.pyc b/ROAR_Sim/carla_client/__pycache__/carla_runner.cpython-37.pyc
+index b90f5ce..80d27f0 100644
+Binary files a/ROAR_Sim/carla_client/__pycache__/carla_runner.cpython-37.pyc and b/ROAR_Sim/carla_client/__pycache__/carla_runner.cpython-37.pyc differ
+diff --git a/ROAR_Sim/carla_client/carla_runner.py b/ROAR_Sim/carla_client/carla_runner.py
+index 2c68862..54cfbc4 100644
+--- a/ROAR_Sim/carla_client/carla_runner.py
++++ b/ROAR_Sim/carla_client/carla_runner.py
+@@ -54,6 +54,8 @@ class CarlaRunner:
+         self.controller = None
+         self.display = None
+         self.agent = None
++        self.vehicle = None
++
+ 
+         self.npc_agents: Dict[npc_agent_class, Any] = {}
+         self.agent_collision_counter = 0
+@@ -73,6 +75,16 @@ class CarlaRunner:
+         self.logger = logging.getLogger(__name__)
+         self.timestep_counter = 0
+ 
++    def reset_vehicle_to_start_point(self):
++        # self.vehicle.set_transform(self.world.map.get_spawn_points()[1])
++        loc = carla.Location(-809.5368041992188, -689.7285766601562, 75.23312377929688)
++        rot = carla.Rotation(-2.182129144668579, 1.353726111119613e-05, -0.014190672896802425)
++        velocity = carla.Vector3D(7.291184425354004, 0.3368271291255951, -0.36976736783981323)
++        self.world.player.set_transform(carla.Transform(loc, rot))
++        self.world.player.set_target_velocity(velocity)
++        self.vehicle = self.carla_bridge. \
++            convert_vehicle_from_source_to_agent(self.world.player)
++
+     def set_carla_world(self) -> Vehicle:
+         """
+         Initiating the vehicle with loading messages
+@@ -117,9 +129,9 @@ class CarlaRunner:
+                                               carla_setting=self.carla_settings
+                                               )
+             self.logger.debug("All settings done")
+-
+-            return self.carla_bridge. \
++            self.vehicle = self.carla_bridge. \
+                 convert_vehicle_from_source_to_agent(self.world.player)
++            return self.vehicle
+ 
+         except Exception as e:
+             self.logger.error(
+diff --git a/ROAR_Sim/carla_client/util/__pycache__/world.cpython-37.pyc b/ROAR_Sim/carla_client/util/__pycache__/world.cpython-37.pyc
+index dbbb536..fd16e5f 100644
+Binary files a/ROAR_Sim/carla_client/util/__pycache__/world.cpython-37.pyc and b/ROAR_Sim/carla_client/util/__pycache__/world.cpython-37.pyc differ
+diff --git a/ROAR_Sim/carla_client/util/world.py b/ROAR_Sim/carla_client/util/world.py
+index 80a59b0..0d835f2 100644
+--- a/ROAR_Sim/carla_client/util/world.py
++++ b/ROAR_Sim/carla_client/util/world.py
+@@ -30,7 +30,7 @@ class World(object):
+         self.carla_settings: CarlaConfig = carla_settings
+         self.agent_settings: AgentConfig = agent_settings
+         self.carla_world: carla.World = carla_world
+-        self.clean_spawned_all_actors()
++        # self.clean_spawned_all_actors() # Jingjing: The destroy of current vehicle, should not lead to other vehicle's destory
+         self.actor_role_name = carla_settings.role_name
+         try:
+             self.map = self.carla_world.get_map()
+@@ -309,22 +309,22 @@ class World(object):
+         ]
+         for actor in actors:
+             if actor is not None:
+-                actor.destroy()
++                actor.destroy() # Jingjing: Player will be destoryed here individually, and won't effect the player in other world.
+ 
+         self._destroy_custom_sensors()
+         for npc, _ in self.npcs_mapping.values():
+             npc.destroy()
++        # Jingjing: if clean all actors in the world, then the vehicle and sensors that belongs to other clients will also be destroyed
++        # self.clean_spawned_all_actors() # Jingjing: The destroy of current vehicle, should not lead to other vehicle's destory
+ 
+-        self.clean_spawned_all_actors()
+-
+-    def clean_spawned_all_actors(self):
++    def clean_spawned_all_actors(self): # Jingjing: The destroy of current vehicle, should not lead to other vehicle's destory
+         """
+         This function is to clean all actors that are not traffic light/signals
+         Returns:
+-
+         """
+-        self.carla_world.tick()
+-        for actor in self.carla_world.get_actors():
+-            if "traffic" not in actor.type_id and "spectator" not in actor.type_id:
+-                actor.destroy()
+-        self.carla_world.tick()
++        # self.carla_world.tick()
++        # for actor in self.carla_world.get_actors():
++        #     if "traffic" not in actor.type_id and "spectator" not in actor.type_id:
++        #         actor.destroy()
++        # self.carla_world.tick()
++        return
+diff --git a/ROAR_gym/ROAR_Gym/envs/e2eModel_roar_env.py b/ROAR_gym/ROAR_Gym/envs/e2eModel_roar_env.py
+index 468886c..a008d54 100644
+--- a/ROAR_gym/ROAR_Gym/envs/e2eModel_roar_env.py
++++ b/ROAR_gym/ROAR_Gym/envs/e2eModel_roar_env.py
+@@ -37,7 +37,6 @@ else:
+     }
+ 
+ 
+-
+ class ROARppoEnvE2E(ROAREnv):
+     def __init__(self, params):
+         super().__init__(params)
+@@ -85,6 +84,7 @@ class ROARppoEnvE2E(ROAREnv):
+         self.crash_step=0
+         self.reward_step=0
+         self.reset_by_crash=True
++        self.is_crashing = False
+         self.fps=8
+         self.crash_tol=5
+         self.reward_tol=4
+@@ -206,6 +206,7 @@ class ROARppoEnvE2E(ROAREnv):
+ 
+         # if self.steps-self.crash_step>self.crash_tol*self.fps:
+         if self.carla_runner.get_num_collision() > 0:
++            self.is_crashing = True
+             if self.reset_by_crash:
+                 reward -= 200#0# /(min(total_num_cross,10))
+             # self.crash_check = True
+@@ -303,7 +304,12 @@ class ROARppoEnvE2E(ROAREnv):
+             self.largest_steps=self.steps
+         elif self.complete_loop and self.agent.finish_loop and self.steps<self.largest_steps:
+             self.largest_steps=self.steps
+-        super(ROARppoEnvE2E, self).reset()
++
++        # reset
++        if self.is_crashing:
++            super(ROARppoEnvE2E, self).reset_by_collision()
++        else:
++            super(ROARppoEnvE2E, self).reset()
+         self.steps=0
+         self.crash_step=0
+         self.reward_step=0
+diff --git a/ROAR_gym/ROAR_Gym/envs/roar_env.py b/ROAR_gym/ROAR_Gym/envs/roar_env.py
+index c5d345d..fcfeb2a 100644
+--- a/ROAR_gym/ROAR_Gym/envs/roar_env.py
++++ b/ROAR_gym/ROAR_Gym/envs/roar_env.py
+@@ -86,6 +86,34 @@ class ROAREnv(gym.Env, ABC):
+         self._start_game()
+         return self.agent
+ 
++    def reset_by_collision(self) -> Any:
++        # # self.carla_runner.on_finish()
++        # # self.carla_runner = CarlaRunner(agent_settings=self.agent_config,
++        # #                                 carla_settings=self.carla_config,
++        # #                                 npc_agent_class=self.npc_agent_class)
++        # # vehicle = self.carla_runner.set_carla_world()
++        # self.carla_runner.reset_vehicle_to_start_point()
++        # if self.agent:
++        #     self.agent.reset(vehicle=self.carla_runner.vehicle)
++        # else:
++        #     self.agent = self.EgoAgentClass(vehicle=self.carla_runner.vehicle, agent_settings=self.agent_config)
++        # self.clock: Optional[pygame.time.Clock] = None
++        # self._start_game()
++        # return self.agent
++        self.carla_runner.on_finish()
++        self.carla_runner = CarlaRunner(agent_settings=self.agent_config,
++                                        carla_settings=self.carla_config,
++                                        npc_agent_class=self.npc_agent_class)
++        vehicle = self.carla_runner.set_carla_world()
++
++        if self.agent:
++            self.agent.reset(vehicle=vehicle)
++        else:
++            self.agent = self.EgoAgentClass(vehicle=vehicle, agent_settings=self.agent_config)
++        self.clock: Optional[pygame.time.Clock] = None
++        self._start_game()
++        return self.agent
++
+     def render(self, mode='ego'):
+         self.carla_runner.world.render(display=self.carla_runner.display)
+         pygame.display.flip()
+diff --git a/ROAR_gym/configurations/wandb_configuration.json b/ROAR_gym/configurations/wandb_configuration.json
+index 3b1ea89..76b4c9d 100644
+--- a/ROAR_gym/configurations/wandb_configuration.json
++++ b/ROAR_gym/configurations/wandb_configuration.json
+@@ -1 +1 @@
+-{"run_id": "Run 5", "name": "", "project_name": "ROAR", "entity": "jingjingwei"}
+\ No newline at end of file
++{"run_id": "Run 11", "name": "", "project_name": "ROAR", "entity": "jingjingwei"}
+\ No newline at end of file
+diff --git a/ROAR_gym/models/Run 5/model.zip b/ROAR_gym/models/Run 5/model.zip
+index d6f1771..5fc48b8 100644
+Binary files a/ROAR_gym/models/Run 5/model.zip and b/ROAR_gym/models/Run 5/model.zip differ

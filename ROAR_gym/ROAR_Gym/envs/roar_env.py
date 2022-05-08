@@ -86,6 +86,34 @@ class ROAREnv(gym.Env, ABC):
         self._start_game()
         return self.agent
 
+    def reset_by_collision(self) -> Any:
+        # # self.carla_runner.on_finish()
+        # # self.carla_runner = CarlaRunner(agent_settings=self.agent_config,
+        # #                                 carla_settings=self.carla_config,
+        # #                                 npc_agent_class=self.npc_agent_class)
+        # # vehicle = self.carla_runner.set_carla_world()
+        # self.carla_runner.reset_vehicle_to_start_point()
+        # if self.agent:
+        #     self.agent.reset(vehicle=self.carla_runner.vehicle)
+        # else:
+        #     self.agent = self.EgoAgentClass(vehicle=self.carla_runner.vehicle, agent_settings=self.agent_config)
+        # self.clock: Optional[pygame.time.Clock] = None
+        # self._start_game()
+        # return self.agent
+        self.carla_runner.on_finish()
+        self.carla_runner = CarlaRunner(agent_settings=self.agent_config,
+                                        carla_settings=self.carla_config,
+                                        npc_agent_class=self.npc_agent_class)
+        vehicle = self.carla_runner.set_carla_world()
+
+        if self.agent:
+            self.agent.reset(vehicle=vehicle)
+        else:
+            self.agent = self.EgoAgentClass(vehicle=vehicle, agent_settings=self.agent_config)
+        self.clock: Optional[pygame.time.Clock] = None
+        self._start_game()
+        return self.agent
+
     def render(self, mode='ego'):
         self.carla_runner.world.render(display=self.carla_runner.display)
         pygame.display.flip()
