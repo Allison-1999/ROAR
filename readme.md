@@ -5,6 +5,10 @@ To help RL model converge, I provide the solution: Multi-Agents RL Model Trainin
 In this project,I implemented multi-agents training solution in one world (Berkeley Minor Map).
 - Support multiple RL agents training.
 - Support one RL agent training with other vehicles (not RL agents).
+## Author
+**Jingjing Wei (jingjingwei@berkeley.edu)**\
+If you encountered any problems during configuration and running the script, please feel free to contact me.
+
 
 # Quick Start
 ## Step 1: Download the Berkeley minor map
@@ -157,6 +161,8 @@ If you want to get this results, please run the `ROAR_gym/e2eModel.py` script of
 - Train multiple RL agents to speed up model converge (Helpful for more complicated map -> Berkeley Major Map)
 - Train one RL agent that can avoid collide with other vehicles.
 2. Multiple vehicles racing
+
 ## Reference
 [1] Dosovitskiy, A., Ros, G., Codevilla, F., Lopez, A., & Koltun, V. (2017). Carla: An open urban driving simulator. In Conference on robot learning (pp. 1–16).
-[2] Python API - CARLA Simulator. (2022). Retrieved 8 May 2022, from https://carla.readthedocs.io/en/latest/python_api
+[2] Python API - CARLA Simulator. (2022). Retrieved 8 May 2022, from https://carla.readthedocs.io/en/latest/python_api\
+The RL model training script is credit to other teammates.
