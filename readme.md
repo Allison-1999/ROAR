@@ -5,6 +5,34 @@ In this project, a new Gym-CARLA environment, ROARMultiEnv, has been developed t
 ```
 git clone https://github.com/Allison-1999/ROAR.git ROAR1
 git clone https://github.com/Allison-1999/ROAR.git ROAR2
+
+after installing the packages, change the stable_baseline3.
+
+change spawn_point_id in ROAR_gym/configurations/agent_configuration.json line 60, set 0 for ROAR1 and set 1 for ROAR2
+with its context should be:
+
+for ROAR1:
+    "enable_autopilot": true,
+    "spawn_point_id": 0,
+    "show_sensors_data": true,
+    "save_sensor_data": false
+
+for ROAR2:
+    "enable_autopilot": true,
+    "spawn_point_id": 1,
+    "show_sensors_data": true,
+    "save_sensor_data": false
+    
+    
+then, change the ROAR_gym/configurations/wandb_configuration.json file, set different run id. Set 1 for ROAR1, and set 2 for ROAR 2
+for ROAR1:
+{"run_id": "Run 1", "name": "", "project_name": "ROAR", "entity": "jingjingwei"}
+for ROAR2:
+{"run_id": "Run 2", "name": "", "project_name": "ROAR", "entity": "jingjingwei"}
+
+
+then, set the API key for wandb
+(login and input the API key)
 ```
 
 
