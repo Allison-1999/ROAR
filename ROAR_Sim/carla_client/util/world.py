@@ -107,6 +107,78 @@ class World(object):
         self.carla_world.on_tick(hud.on_world_tick)
         self.logger.debug("World Initialized")
 
+    # vehicle information retriver APIs for debugging and future ROAR Reinforcement Learning Task
+
+    # If you want to visualize the information. Please use the `json.dumps(carla_world.<name_of_api>(), indent=4)` to run these apis, to get good resutls.
+    # Notice: IF you cannot see the output in terminal, that is led by the training logger overwrite the terminal, you can save these info to a local file.
+
+    # get all vehicle's ids
+    def get_all_vehicle_ids(self):
+        vehicles = self.carla_world.get_actors().filter('vehicle.*')
+        id_list = []
+        for vehicle in vehicles:
+            id_list.append(vehicle.id)
+        return id_list
+
+    # get current vehicle info --> Cannot use now, since the player don't have an id.
+    # Please let the person who is responsible for world.py to add the id to self.player.
+    # def get_current_vehicle_info(self):
+    #     return self.get_vehicle_info_by_id(self.player.id)
+
+    # get a specific vehicle's info by it's id
+    def get_vehicle_info_by_id(self, id):
+        vehicles = self.carla_world.get_actors().filter('vehicle.*')
+        infos_dict = {}
+        for vehicle in vehicles:
+            if vehicle.id != id:
+                continue
+            vehicle_dict = {}
+            vehicle_transform = vehicle.get_transform()
+            vehicle_velocity = vehicle.get_velocity()
+
+            # location
+            vehicle_dict['x'] = vehicle_transform.location.x
+            vehicle_dict['y'] = vehicle_transform.location.y
+            vehicle_dict['z'] = vehicle_transform.location.z
+            # Rotation
+            vehicle_dict['pitch'] = vehicle_transform.rotation.pitch
+            vehicle_dict['yaw'] = vehicle_transform.rotation.yaw
+            vehicle_dict['roll'] = vehicle_transform.rotation.roll
+            # Velocity:
+            vehicle_dict['vx'] = vehicle_velocity.x
+            vehicle_dict['vy'] = vehicle_velocity.y
+            vehicle_dict['vz'] = vehicle_velocity.z
+
+            infos_dict[vehicle.id] = vehicle_dict
+
+        return infos_dict
+
+    # insert all vehicles' information and return a dictionary, with id of vehicle as index
+    def get_all_vehicle_infos(self):
+        vehicles = self.carla_world.get_actors().filter('vehicle.*')
+        infos_dict = {}
+        for vehicle in vehicles:
+            vehicle_dict = {}
+            vehicle_transform = vehicle.get_transform()
+            vehicle_velocity = vehicle.get_velocity()
+
+            # location
+            vehicle_dict['x'] = vehicle_transform.location.x
+            vehicle_dict['y'] = vehicle_transform.location.y
+            vehicle_dict['z'] = vehicle_transform.location.z
+            # Rotation
+            vehicle_dict['pitch'] = vehicle_transform.rotation.pitch
+            vehicle_dict['yaw'] = vehicle_transform.rotation.yaw
+            vehicle_dict['roll'] = vehicle_transform.rotation.roll
+            # Velocity:
+            vehicle_dict['vx'] = vehicle_velocity.x
+            vehicle_dict['vy'] = vehicle_velocity.y
+            vehicle_dict['vz'] = vehicle_velocity.z
+
+            infos_dict[vehicle.id] = vehicle_dict
+
+        return infos_dict
+
     def spawn_actor(self, actor_filter: str = "vehicle.tesla.model3",
                     player_role_name: str = "npc",
                     color: CarlaCarColor = CarlaCarColors.GREY,
