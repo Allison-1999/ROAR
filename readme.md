@@ -158,23 +158,23 @@ If you want to get this results, please run the `ROAR_gym/e2eModel.py` script of
 
 
 ## Common Problems:
-[1] If you see the following errors:
+**[1] If you see the following errors:**
 `ValueError: Cannot spawn actor at ID [1]. Error: Spawn failed because of collision at spawn position`. 
 
 It may caused by:
 1. A vehicle from previous killed client occupy the position. Please close your CarlaUE4 using Task Manager. 
 2. You start the `ROAR1` and `ROAR2` at the same spawn point. Please check the spawn point discribed in the Step 3.6 and start two script one by one.
 
-[2] If you see the following errors:
+**[2] If you see the following errors:**
 `wandb: ERROR Error while calling W&B API: Error 1062: Duplicate entry '908467-Run 1' for key 'PRIMARY' (<Response [409]>)`
 Then please use a unqiue run_id and run_name as described in Step 3.6
 
-[3] If you see the following errors:
+**[3] If you see the following errors:**
 ```RuntimeError: time-out of 2000ms while waiting for the simulator, make sure the simulator is ready and connected to 127.0.0.1:2000```
 If you see this error, please delete all previous UE4 engine using Task Manager to make sure `port 2000` is available or restart your system.
 
 
-[4] If your computer is not powerful enough, you may encounter the blue screen problem which need a reboot. Please run multi-agent RL training in a high-end PC.
+**[4] If your computer is not powerful enough, you may encounter the blue screen problem which need a reboot.** Please run multi-agent RL training in a high-end PC.
 ![](readme_figures/blue_screen.png)
 
 ## Future Work
